@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -19,7 +20,6 @@ import android.widget.TextView;
 
 public class BallSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
-	private Bitmap backgroundBitmap;
 	private Bitmap ballBitmap;
 	private Ball ball;
 	Context context;
@@ -49,13 +49,20 @@ public class BallSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 		
         ball = new Ball(200, 0, INITIAL_X_VELOCITY, INITIAL_Y_VELOCITY, 20, 20);
 		ballBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.balliga);
-	    backgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.estadio3);
 	}
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
 	
 		super.onDraw(canvas);
+		
+		int x = 0;
+		int y = 0; 
+		Paint paint = new Paint(); 
+		paint.setStyle(Paint.Style.FILL); 
+		// make the entire canvas white 
+		paint.setColor(Color.BLUE); 
+		canvas.drawPaint(paint);
 		
 		double v2 = (ACCELERATION * 1) + ball.getyVelocity();
 
@@ -92,8 +99,7 @@ public class BallSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             ball.setxVelocity(COEFFICIENT_OF_FRICTION * ball.getxVelocity());
         }
 
-        canvas.drawBitmap(backgroundBitmap, 0, 0, null);
-	    canvas.drawBitmap(ballBitmap, ball.getX(), ball.getY(), null);
+	    canvas.drawBitmap(ballBitmap, ball.getX(), ball.getY(), paint);
 	}
 	
 	
