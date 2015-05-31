@@ -12,7 +12,7 @@ values to change the ball physics.
 <img src="https://github.com/Rafagf/BouncingBall/blob/master/Screenshot_2014-04-02-22-13-57.png?raw=true" height = 400>
 <img src="https://github.com/Rafagf/BouncingBall/blob/master/Screenshot_2014-04-02-22-14-02.png?raw=true" height = 400>
 
-## Autor
+## Author
 
 Rafael García Fernández
 
